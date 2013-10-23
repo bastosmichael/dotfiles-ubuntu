@@ -5,3 +5,15 @@
 	default = matching
 [http]
 	postBuffer = 524288000
+[color]
+        ui = auto
+        branch = auto
+        diff = auto
+        interactive = auto
+        status = auto
+
+[alias]
+        st = status
+        ci = commit
+        co = checkout
+        br = branch
