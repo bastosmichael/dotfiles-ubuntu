@@ -1,0 +1,7 @@
+[user]
+	email = bastosmichael@gmail.com
+	name = Michael Bastos
+[push]
+	default = matching
+[http]
+	postBuffer = 524288000
