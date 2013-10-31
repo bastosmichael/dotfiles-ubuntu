@@ -1,0 +1,3 @@
+---
+server_ports:
+  emulator-5554: 34777

@@ -30,4 +30,6 @@
 /.gtk-bookmarks
 /.pry_history
 /.psql_history
-
+/.Private
+/.ecryptfs
+/.zlogin
