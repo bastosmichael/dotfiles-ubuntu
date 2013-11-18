@@ -27,11 +27,16 @@ elif [ $1 == 'install' ]; then
 	bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
 	type rvm | head -1
 	rvm install 2.0.0
-	rvm use --default 2.0.0
 	rvm install 1.9.3
 	rvm install 1.9.2
 	rvm install 1.8.7
+	rvm use --default 2.0.0
 	sudo apt-get install -y libmysql-ruby
+	echo "Installing Android SDK"
+	sudo apt-get install -y openjdk-7-jre
+	wget http://dl.google.com/android/android-sdk_r22.3-linux.tgz
+	sudo tar -xvf android-sdk_r22.3-linux.tgz -C /opt
+	sudo chmod -R 755 /opt/android-sdk-linux
 elif [ $1 == 'update' ]; then
         echo "Updating..."
         sudo apt-get update
