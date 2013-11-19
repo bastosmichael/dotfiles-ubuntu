@@ -19,6 +19,7 @@ elif [ $1 == 'install' ]; then
 	sudo apt-get install -y chromium-browser libxss1
 	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 	sudo dpkg -i google-chrome*.deb
+	rm *.deb
 	echo "Installing Sublime-Text 3"
 	sudo add-apt-repository -y ppa:webupd8team/sublime-text-3
 	sudo apt-get update
@@ -38,7 +39,7 @@ elif [ $1 == 'install' ]; then
 	wget http://dl.google.com/android/android-sdk_r22.3-linux.tgz
 	sudo tar -xvf android-sdk_r22.3-linux.tgz -C /opt
 	sudo chmod -R 777 /opt/android-sdk-linux
-	/opt/android-sdk-linux/tools/android update sdk --no-ui
+	rm *.tgz
 	echo "Installing Eclipse"
 	sudo apt-get -y install eclipse eclipse-jdt eclipse-cdt eclipse-pde eclipse-platform eclipse-rcp
 	echo "Installing Vagrant"
@@ -50,6 +51,7 @@ elif [ $1 == 'update' ]; then
     echo "Updating..."
     sudo apt-get update
     sudo apt-get upgrade
+    /opt/android-sdk-linux/tools/android update sdk --no-ui
 elif [ $1 == 'upgrade' ]; then
     echo "Upgrading..."
     sudo apt-get update
@@ -57,7 +59,7 @@ elif [ $1 == 'upgrade' ]; then
 	sudo apt-get dist-upgrade
 elif [ $1 == 'ssh' ]; then
 	cd ~/.ssh
-	ssh-keygen -t rsa
+	ssh-keygen -t rsa -C "bastosmichael@gmail.com"
 	cd ~/
 	cat ~/.ssh/id_rsa.pub
 fi
