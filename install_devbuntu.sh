@@ -25,6 +25,7 @@ elif [ $1 == 'install' ]; then
 	sudo apt-get install -y sublime-text-installer
 	echo "Installing RVM"
 	bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
+	source ~/.bashrc
 	type rvm | head -1
 	rvm install 2.0.0
 	rvm install 1.9.3
@@ -57,5 +58,6 @@ elif [ $1 == 'upgrade' ]; then
 elif [ $1 == 'ssh' ]; then
 	cd ~/.ssh
 	ssh-keygen -t rsa
-	cat id_rsa.pub
+	cd ~/
+	cat ~/.ssh/id_rsa.pub
 fi
