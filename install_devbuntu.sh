@@ -2,7 +2,7 @@
 
 if [ $# -eq 0 ]
 then
-        echo "install_devbuntu.sh [options] install|update|upgrade"
+        echo "install_devbuntu.sh [options] install|update|upgrade|ssh"
 elif [ $1 == 'install' ]; then
 	echo "Updating..."
 	sudo apt-get update
@@ -46,12 +46,16 @@ elif [ $1 == 'install' ]; then
 	vagrant plugin install vagrant-aws vagrant-awsinfo vagrant-rackspace
 	#echo "Installing VM Ware"
 elif [ $1 == 'update' ]; then
-        echo "Updating..."
-        sudo apt-get update
-        sudo apt-get upgrade
+    echo "Updating..."
+    sudo apt-get update
+    sudo apt-get upgrade
 elif [ $1 == 'upgrade' ]; then
-        echo "Upgrading..."
-        sudo apt-get update
-        sudo apt-get upgrade
+    echo "Upgrading..."
+    sudo apt-get update
+    sudo apt-get upgrade
 	sudo apt-get dist-upgrade
+elif [ $1 == 'ssh' ]; then
+	cd ~/.ssh
+	ssh-keygen -t rsa
+	cat id_rsa.pub
 fi
