@@ -8,11 +8,11 @@ elif [ $1 == 'install' ]; then
 	sudo apt-get update
 	sudo apt-get upgrade
 	echo "Installing Essentials"
-	sudo apt-get install -y build-essential git-core curl openssh-client openssh-server
+	sudo apt-get install -y build-essential git-core curl openssh-client openssh-server libxslt-dev libxml2-dev
 	echo "Installing Databases"
 	sudo debconf-set-selections <<< 'mysql-server-<version> mysql-server/root_password password password'
 	sudo debconf-set-selections <<< 'mysql-server-<version> mysql-server/root_password_again password password'
-	sudo apt-get install -y mysql-client mysql-server libmysqlclient-dev sqlite3 libsqlite3-dev postgresql postgresql-contrib
+	sudo apt-get install -y mysql-client mysql-server libmysqlclient-dev sqlite3 libsqlite3-dev postgresql postgresql-contrib libpq-dev
 	echo "Installing Xmonad"
         sudo apt-get install -y xmonad xmobar suckless-tools
 	echo "Installing Browsers"
