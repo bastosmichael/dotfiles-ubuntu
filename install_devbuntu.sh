@@ -31,12 +31,20 @@ elif [ $1 == 'install' ]; then
 	rvm install 1.9.2
 	rvm install 1.8.7
 	rvm use --default 2.0.0
-	sudo apt-get install -y libmysql-ruby
+	sudo apt-get install -y libmysql-ruby ruby1.9.1-dev
 	echo "Installing Android SDK"
 	sudo apt-get install -y openjdk-7-jre
 	wget http://dl.google.com/android/android-sdk_r22.3-linux.tgz
 	sudo tar -xvf android-sdk_r22.3-linux.tgz -C /opt
-	sudo chmod -R 755 /opt/android-sdk-linux
+	sudo chmod -R 777 /opt/android-sdk-linux
+	/opt/android-sdk-linux/tools/android update sdk --no-ui
+	echo "Installing Eclipse"
+	sudo apt-get -y install eclipse eclipse-jdt eclipse-cdt eclipse-pde eclipse-platform eclipse-rcp
+	echo "Installing Vagrant"
+	sudo apt-get -y install virtualbox vagrant linux-headers-$(uname -r)
+	sudo dpkg-reconfigure virtualbox-dkms
+	vagrant plugin install vagrant-aws vagrant-awsinfo vagrant-rackspace
+	#echo "Installing VM Ware"
 elif [ $1 == 'update' ]; then
         echo "Updating..."
         sudo apt-get update
