@@ -8,6 +8,9 @@ elif [ $1 == 'install' ]; then
 	sudo apt-get update
 	sudo apt-get upgrade
 	echo "Installing Essentials"
+	sudo dpkg --add-architecture i386
+	sudo apt-get -qqy update
+	sudo apt-get -qqy install libncurses5:i386 libstdc++6:i386 zlib1g:i386
 	sudo apt-get install -y build-essential git-core curl openssh-client openssh-server libxslt-dev libxml2-dev
 	echo "Installing Databases"
 	sudo debconf-set-selections <<< 'mysql-server-<version> mysql-server/root_password password password'
