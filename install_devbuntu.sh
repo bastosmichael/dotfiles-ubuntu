@@ -8,7 +8,7 @@ elif [ $1 == 'install' ]; then
 	sudo apt-get update
 	sudo apt-get upgrade
 	echo "Installing Essentials"
-	sudo apt-get install -y build-essential git-core curl 
+	sudo apt-get install -y build-essential git-core curl openssh-client openssh-server
 	echo "Installing Databases"
 	sudo debconf-set-selections <<< 'mysql-server-<version> mysql-server/root_password password password'
 	sudo debconf-set-selections <<< 'mysql-server-<version> mysql-server/root_password_again password password'
@@ -46,7 +46,10 @@ elif [ $1 == 'install' ]; then
 	sudo apt-get -y install virtualbox vagrant linux-headers-$(uname -r)
 	sudo dpkg-reconfigure virtualbox-dkms
 	vagrant plugin install vagrant-aws vagrant-awsinfo vagrant-rackspace
-	#echo "Installing VM Ware"
+	echo "Installing VM Ware"
+	wget https://www.dropbox.com/s/zdqk3rza7ipd70a/VMware-Workstation-Full-10.0.1-1379776.x86_64.bundle
+	chmod 777 VMware-Workstation-Full-10.0.1-1379776.x86_64.bundle
+	sudo ./VMware-Workstation-Full-10.0.1-1379776.x86_64.bundle
 elif [ $1 == 'update' ]; then
     echo "Updating..."
     sudo apt-get update
