@@ -42,6 +42,13 @@ elif [ $1 == 'install' ]; then
 	rm *.tgz
 	echo "Installing Eclipse"
 	sudo apt-get -y install eclipse eclipse-jdt eclipse-cdt eclipse-pde eclipse-platform eclipse-rcp
+	echo "Installing Docker"
+	sudo apt-get update
+	sudo apt-get install linux-image-extra-`uname -r`
+	sudo sh -c "wget -qO- https://get.docker.io/gpg | apt-key add -"
+	sudo sh -c "echo deb http://get.docker.io/ubuntu docker main\ > /etc/apt/sources.list.d/docker.list"
+	sudo apt-get update
+	sudo apt-get install lxc-docker
 	echo "Installing Vagrant"
 	sudo apt-get -y install virtualbox vagrant linux-headers-$(uname -r)
 	sudo dpkg-reconfigure virtualbox-dkms
