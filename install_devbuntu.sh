@@ -36,7 +36,7 @@ elif [ $1 == 'install' ]; then
 	rvm install 1.9.2
 	rvm install 1.8.7
 	rvm use --default 2.0.0
-	sudo apt-get install -y libmysql-ruby ruby1.9.1-dev
+	sudo apt-get install -y libmysql-ruby ruby1.9.1-dev libv8-dev
 	echo "Installing Android SDK"
 	sudo apt-get install -y openjdk-7-jre
 	wget http://dl.google.com/android/android-sdk_r22.3-linux.tgz
