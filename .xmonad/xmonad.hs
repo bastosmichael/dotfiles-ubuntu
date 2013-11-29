@@ -11,8 +11,9 @@ myManageHook  = composeAll
 	, manageDocks
 	]
 
-myWorkSpaces = [ "web" -- Workspace 1
-	       , "dev" -- Workspace 2
+myWorkSpaces = [ "web"   -- Workspace 1
+	       , "dev"   -- Workspace 2
+	       , "music" -- Workspace 3
 	       ]
 
 myStartupHook :: X ()
