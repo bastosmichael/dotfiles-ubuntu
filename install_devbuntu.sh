@@ -12,7 +12,7 @@ elif [ $1 == 'install' ]; then
 	sudo add-apt-repository ppa:colingille/freshlight
 	sudo apt-get -qqy update
 	sudo apt-get -qqy install libncurses5:i386 libstdc++6:i386 zlib1g:i386
-	sudo apt-get install -y build-essential screen git-core curl openssh-client openssh-server libxslt-dev libxml2-dev nmap winusb
+	sudo apt-get install -y build-essential screen git-core curl openssh-client openssh-server libxslt-dev libxml2-dev nmap winusb pcscd coolkey
 	echo "Installing Databases"
 	sudo debconf-set-selections <<< 'mysql-server-<version> mysql-server/root_password password password'
 	sudo debconf-set-selections <<< 'mysql-server-<version> mysql-server/root_password_again password password'
@@ -20,7 +20,7 @@ elif [ $1 == 'install' ]; then
 	echo "Installing Xmonad"
         sudo apt-get install -y xmonad xmobar suckless-tools
 	echo "Installing Browsers"
-	sudo apt-get install -y chromium-browser libxss1
+	sudo apt-get install -y chromium-browser libxss1 icedtea-7-plugin
 	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 	sudo dpkg -i google-chrome*.deb
 	rm *.deb
