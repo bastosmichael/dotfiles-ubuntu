@@ -13,6 +13,8 @@ elif [ $1 == 'install' ]; then
 	sudo apt-get -qqy update
 	sudo apt-get -qqy install libncurses5:i386 libstdc++6:i386 zlib1g:i386
 	sudo apt-get install -y build-essential screen git-core curl openssh-client openssh-server libxslt-dev libxml2-dev nmap winusb pcscd coolkey meld
+	echo "Installing Heroku Toolset"
+	wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 	echo "Installing Databases"
 	sudo debconf-set-selections <<< 'mysql-server-<version> mysql-server/root_password password password'
 	sudo debconf-set-selections <<< 'mysql-server-<version> mysql-server/root_password_again password password'
