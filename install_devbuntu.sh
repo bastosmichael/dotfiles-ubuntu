@@ -22,7 +22,7 @@ elif [ $1 == 'install' ]; then
 	echo "Installing Xmonad"
         sudo apt-get install -y xmonad xmobar suckless-tools
 	echo "Installing Browsers"
-	sudo apt-get install -y chromium-browser libxss1 icedtea-7-plugin
+	sudo apt-get install -y chromium-browser libxss1 icedtea-7-plugin xvfb firefox
 	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 	sudo dpkg -i google-chrome*.deb
 	rm *.deb
