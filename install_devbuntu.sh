@@ -41,7 +41,7 @@ elif [ $1 == 'install' ]; then
 	rvm use --default 2.0.0
 	sudo apt-get install -y libmysql-ruby ruby1.9.1-dev libv8-dev
 	echo "Installing Android SDK"
-	sudo apt-get install -y openjdk-7-jre
+	sudo apt-get install -y openjdk-7-jre openjdk-7-jdk
 	wget http://dl.google.com/android/android-sdk_r22.3-linux.tgz
 	sudo tar -xvf android-sdk_r22.3-linux.tgz -C /opt
 	sudo chmod -R 777 /opt/android-sdk-linux
@@ -50,11 +50,11 @@ elif [ $1 == 'install' ]; then
 	sudo apt-get -y install eclipse eclipse-jdt eclipse-cdt eclipse-pde eclipse-platform eclipse-rcp
 	echo "Installing Docker"
 	sudo apt-get update
-	sudo apt-get install linux-image-extra-`uname -r`
+	sudo apt-get -y install linux-image-extra-`uname -r`
 	sudo sh -c "wget -qO- https://get.docker.io/gpg | apt-key add -"
 	sudo sh -c "echo deb http://get.docker.io/ubuntu docker main\ > /etc/apt/sources.list.d/docker.list"
 	sudo apt-get update
-	sudo apt-get install lxc-docker
+	sudo apt-get -y install lxc-docker
 	echo "Installing Vagrant"
 	sudo apt-get -y install virtualbox vagrant linux-headers-$(uname -r)
 	sudo dpkg-reconfigure virtualbox-dkms
