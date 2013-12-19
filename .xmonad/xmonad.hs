@@ -21,11 +21,17 @@ myStartupHook = do
 	spawnOn "web" "google-chrome"
 
 main = do
-    xmonad =<< xmobar defaultConfig
-        { XMonad.workspaces  = myWorkSpaces 
-	, XMonad.manageHook  = myManageHook <+> manageHook defaultConfig
-        , XMonad.layoutHook  = avoidStruts $ layoutHook defaultConfig
-        , XMonad.borderWidth = 2
-        , XMonad.terminal    = "urxvtc"
-	, XMonad.startupHook = myStartupHook
-	}
+    xmproc <- spawnPipe "/usr/bin/xmobar"
+    xmonad $ defaultConfig
+        { workspaces  = myWorkSpaces
+	, startupHook = myStartupHook 
+ 	, manageHook  = myManageHook <+> manageHook defaultConfig
+        , layoutHook  = avoidStruts $ layoutHook defaultConfig
+        , logHook     = dynamicLogWithPP xmobarPP
+            { ppOutput = hPutStrLn xmproc
+            , ppTitle = xmobarColor "green" "" . shorten 50
+            }
+        , borderWidth = 2
+        , terminal    = "urxvtc" } `additionalKeys`
+        [ ((mod4Mask    ,xK_l), spawn "gnome-screensaver-command -l") 
+        ]

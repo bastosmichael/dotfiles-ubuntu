@@ -6,7 +6,7 @@ then
 elif [ $1 == 'install' ]; then
 	echo "Updating..."
 	sudo apt-get update
-	sudo apt-get upgrade
+	sudo apt-get -y upgrade
 	echo "Installing Essentials"
 	sudo dpkg --add-architecture i386
 	sudo add-apt-repository ppa:colingille/freshlight
