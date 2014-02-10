@@ -9,7 +9,7 @@ elif [ $1 == 'install' ]; then
 	sudo apt-get -y upgrade
 	echo "Installing Essentials"
 	sudo dpkg --add-architecture i386
-	sudo add-apt-repository ppa:colingille/freshlight
+	sudo add-apt-repository -y ppa:colingille/freshlight
 	sudo apt-get -qqy update
 	sudo apt-get -qqy install libncurses5:i386 libstdc++6:i386 zlib1g:i386
 	sudo apt-get install -y build-essential screen git-core curl openssh-client openssh-server libxslt-dev libxml2-dev nmap winusb pcscd coolkey meld nautilus-dropbox
