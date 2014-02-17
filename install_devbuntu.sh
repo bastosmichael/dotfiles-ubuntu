@@ -81,4 +81,14 @@ elif [ $1 == 'devops' ]; then
 	sudo ./VMware-Workstation-Full-10.0.1-1379776.x86_64.bundle
 	echo "Installing Heroku Toolset"
 	wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+elif [ $1 == 'home_theater' ]; then
+	sudo apt-get install avahi-daemon -y
+	sudo add-apt-repository -y "deb http://ppa.launchpad.net/plexapp/plexht/ubuntu saucy main"
+	sudo add-apt-repository -y "deb-src http://ppa.launchpad.net/plexapp/plexht/ubuntu saucy main"
+	sudo add-apt-repository -y ppa:plexapp/plexht
+	sudo add-apt-repository -y ppa:jon-severinsson/ffmpeg
+	sudo add-apt-repository -y ppa:pulse-eight/libcec
+	sudo add-apt-repository -y ppa:team-xbmc/xbmc-nightly
+	sudo apt-get update -y
+	sudo apt-get install -y plexhometheater
 fi
