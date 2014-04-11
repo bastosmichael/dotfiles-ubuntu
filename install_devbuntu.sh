@@ -32,13 +32,13 @@ elif [ $1 == 'install' ]; then
 	bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
 	source ~/.bashrc
 	type rvm | head -1
+	rvm install 2.1.1
 	rvm install 2.1.0
-	rvm install 2.0.0
-	rvm install 1.9.3
-	rvm install 1.9.2
-	rvm install 1.8.7
-	rvm use --default 2.1.0
-	sudo apt-get install -y libmysql-ruby ruby1.9.1-dev libv8-dev graphviz
+	rvm use --default 2.1.1
+	echo "Installing Rbenv"
+	sudo apt-get install -y zlib1g-dev libssl-dev libreadline-dev libyaml-dev libsqlite3-dev libxml2-dev libxslt1-dev libcurl4-openssl-dev
+	git clone git://github.com/sstephenson/rbenv.git .rbenv
+	git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 elif [ $1 == 'update' ]; then
     echo "Updating..."
     sudo apt-get update
