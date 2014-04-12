@@ -18,6 +18,8 @@ myWorkSpaces = [ "web"   -- Workspace 1
 
 myStartupHook :: X ()
 myStartupHook = do
+    spawnOn "web" "gnome-terminal";
+    spawnOn "web" "subl";
 	spawnOn "web" "google-chrome"
 
 main = do
