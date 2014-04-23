@@ -36,3 +36,4 @@
 /.netrc
 /.pgadmin3
 /.mysql_history.TMP
+/.byebug_hist
