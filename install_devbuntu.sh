@@ -16,7 +16,7 @@ elif [ $1 == 'install' ]; then
 	echo "Installing Databases"
 	sudo debconf-set-selections <<< 'mysql-server-<version> mysql-server/root_password password password'
 	sudo debconf-set-selections <<< 'mysql-server-<version> mysql-server/root_password_again password password'
-	sudo apt-get install -y mysql-client mysql-server libmysqlclient-dev sqlite3 libsqlite3-dev postgresql postgresql-contrib libpq-dev redis-server mongodb
+	sudo apt-get install -y mysql-client mysql-server libmysqlclient-dev sqlite3 libsqlite3-dev postgresql postgresql-contrib libpq-dev redis-server mongodb couchdb
 	echo "Installing Xmonad"
         sudo apt-get install -y xmonad xmobar suckless-tools
 	echo "Installing Browsers"
