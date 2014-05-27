@@ -12,11 +12,11 @@ elif [ $1 == 'install' ]; then
 	sudo add-apt-repository -y ppa:colingille/freshlight
 	sudo apt-get -qqy update
 	sudo apt-get -qqy install libncurses5:i386 libstdc++6:i386 zlib1g:i386
-	sudo apt-get install -y build-essential screen git-core curl openssh-client openssh-server libxslt-dev libxml2-dev libqt4-dev qtcreator nmap winusb pcscd coolkey meld nautilus-dropbox imagemagick nodejs
+	sudo apt-get install -y build-essential screen git-core curl openssh-client openssh-server libxslt-dev libxml2-dev libqt4-dev qtcreator nmap winusb pcscd coolkey meld nautilus-dropbox imagemagick libmagickwand-dev nodejs
 	echo "Installing Databases"
 	sudo debconf-set-selections <<< 'mysql-server-<version> mysql-server/root_password password password'
 	sudo debconf-set-selections <<< 'mysql-server-<version> mysql-server/root_password_again password password'
-	sudo apt-get install -y mysql-client mysql-server libmysqlclient-dev sqlite3 libsqlite3-dev postgresql postgresql-contrib libpq-dev redis-server mongodb
+	sudo apt-get install -y mysql-client mysql-server libmysqlclient-dev sqlite3 libsqlite3-dev postgresql postgresql-contrib libpq-dev redis-server mongodb couchdb
 	echo "Installing Xmonad"
         sudo apt-get install -y xmonad xmobar suckless-tools
 	echo "Installing Browsers"
