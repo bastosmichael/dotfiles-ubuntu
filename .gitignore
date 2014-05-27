@@ -37,3 +37,7 @@
 /.pgadmin3
 /.mysql_history.TMP
 /.byebug_hist
+/.cloudfuse
+/.lesshst
+/.pearrc
+/.rediscli_history

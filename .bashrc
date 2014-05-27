@@ -265,3 +265,4 @@ alias pumpitup="osascript -e 'set volume 7'"
 alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
 
 alias mysqlamco="ln -s /var/run/mysqld/mysqld.sock /tmp/mysql.sock"
+alias clearredis="redis-cli -c 'flushall'"
