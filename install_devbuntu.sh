@@ -9,7 +9,7 @@ elif [ $1 == 'install' ]; then
 	sudo apt-get -y upgrade
 	echo "Installing Essentials"
 	sudo dpkg --add-architecture i386
-	sudo add-apt-repository -y ppa:colingille/freshlight
+	# sudo add-apt-repository -y ppa:colingille/freshlight
 	sudo apt-get -qqy update
 	sudo apt-get -qqy install libncurses5:i386 libstdc++6:i386 zlib1g:i386
 	sudo apt-get install -y build-essential screen git-core curl openssh-client openssh-server libxslt-dev libxml2-dev libqt4-dev qtcreator nmap winusb pcscd coolkey meld nautilus-dropbox imagemagick libmagickwand-dev nodejs
@@ -29,16 +29,12 @@ elif [ $1 == 'install' ]; then
 	sudo apt-get update
 	sudo apt-get install -y sublime-text-installer
 	echo "Installing RVM"
-	bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
-	source ~/.bashrc
-	type rvm | head -1
-	rvm install 2.1.1
-	rvm install 2.1.0
-	rvm use --default 2.1.1
-	echo "Installing Rbenv"
-	sudo apt-get install -y zlib1g-dev libssl-dev libreadline-dev libyaml-dev libsqlite3-dev libxml2-dev libxslt1-dev libcurl4-openssl-dev
-	git clone git://github.com/sstephenson/rbenv.git .rbenv
-	git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+	sudo apt-get install libgdbm-dev libncurses5-dev automake libtool bison libffi-dev
+    curl -L https://get.rvm.io | bash -s stable
+    source ~/.rvm/scripts/rvm
+    rvm install 2.1.2
+    rvm use 2.1.2 --default
+    ruby -v
 elif [ $1 == 'update' ]; then
     echo "Updating..."
     sudo apt-get update
