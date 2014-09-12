@@ -1,7 +1,6 @@
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 export ANDROID_HOME=/opt/android-sdk-linux
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
@@ -110,4 +109,9 @@ alias pumpitup="osascript -e 'set volume 7'"
 alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
 alias mysqlamco="ln -s /var/run/mysqld/mysqld.sock /tmp/mysql.sock"
 alias clearredis="redis-cli -c 'flushall'"
-source ~/.rvm/scripts/rvm
+
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+
+export PATH=$JAVA_HOME/bin:$PATH
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
