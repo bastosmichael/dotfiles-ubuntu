@@ -32,8 +32,8 @@ elif [ $1 == 'install' ]; then
 	sudo apt-get install libgdbm-dev libncurses5-dev automake libtool bison libffi-dev
     curl -L https://get.rvm.io | bash -s stable
     source ~/.rvm/scripts/rvm
-    rvm install 2.1.2
-    rvm use 2.1.2 --default
+    rvm install 2.2.0
+    rvm use 2.2.0 --default
     ruby -v
 elif [ $1 == 'update' ]; then
     echo "Updating..."
