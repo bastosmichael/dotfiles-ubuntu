@@ -123,3 +123,6 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+
+alias pbcopy="xclip -selection c"
+alias pbpaste="xclip -selection c -o"
