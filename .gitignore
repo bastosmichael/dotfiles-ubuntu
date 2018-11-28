@@ -1,5 +1,5 @@
 *
-!/.*
+/.*
 !/.xmonad/xmonad.hs
 /.ICEauthority
 /.Xauthority

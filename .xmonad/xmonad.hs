@@ -12,14 +12,17 @@ myManageHook  = composeAll
 	]
 
 myWorkSpaces = [ "web"   -- Workspace 1
-	       , "dev"   -- Workspace 2
-	       , "music" -- Workspace 3
-	       ]
+	           , "dev"   -- Workspace 2
+               , "ops"   -- Workspace 3
+	           , "music" -- Workspace 4
+	           ]
 
 myStartupHook :: X ()
 myStartupHook = do
-    spawnOn "web" "code";
-	spawnOn "web" "google-chrome"
+    spawnOn "dev" "code";
+    spawnOn "web" "google-chrome"
+    spawnOn "dev" "slack"
+    spawnOn "ops" "gnome-terminal"
 
 main = do
     xmproc <- spawnPipe "/usr/bin/xmobar"
