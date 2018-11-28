@@ -126,3 +126,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 
 alias pbcopy="xclip -selection c"
 alias pbpaste="xclip -selection c -o"
+
+export NVM_DIR="/home/michael/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+nvm use node
