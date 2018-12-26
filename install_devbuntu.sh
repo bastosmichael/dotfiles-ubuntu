@@ -42,6 +42,8 @@ elif [ $1 == 'install' ]; then
 	echo "Install PyEnv"
 	curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
 	pyenv install 2.7
+	pyenv install 3.6.3
+	pyenv local 3.6.3
 elif [ $1 == 'update' ]; then
     echo "Updating..."
     sudo apt-get update
