@@ -14,6 +14,8 @@ elif [ $1 == 'install' ]; then
 	sudo apt update
 	sudo apt install pdftk
 	sudo snap install postman
+        sudo snap install slack --classic
+        sudo snap install android-studio --classic
 	echo "Installing Xmonad"
         sudo apt install -y xmonad xmobar suckless-tools
 	echo "Installing Databases"

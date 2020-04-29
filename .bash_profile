@@ -1,7 +1,7 @@
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-export ANDROID_HOME=/opt/android-sdk-linux
+export ANDROID_HOME=~/Android/Sdk
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
 alias ...="cd ../.."
@@ -110,7 +110,7 @@ alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
 alias mysqlamco="ln -s /var/run/mysqld/mysqld.sock /tmp/mysql.sock"
 alias clearredis="redis-cli -c 'flushall'"
 
-export JAVA_HOME=/usr/lib/jvm/java-9-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 
 export PATH=$JAVA_HOME/bin:$PATH
 
@@ -130,3 +130,7 @@ alias pbpaste="xclip -selection c -o"
 export NVM_DIR="/home/michael/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 nvm use node
+
+export PATH="$PATH:/home/michael/flutter/bin"
+export ANDROID_SDK_ROOT=~/Android/Sdk
+export PATH=$ANDROID_SDK_ROOT/cmdline-tools/tools/bin:$PATH
