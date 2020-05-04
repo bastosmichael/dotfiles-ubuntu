@@ -9,7 +9,7 @@ elif [ $1 == 'install' ]; then
 	sudo apt -y upgrade
         sudo apt -y dist-upgrade
 	echo "Installing Essentials"
-	sudo apt install -y build-essential screen git curl openssh-client openssh-server nmap imagemagick libmagickwand-dev libmagickwand-dev
+	sudo apt install -y build-essential screen git curl openssh-client openssh-server nmap imagemagick libmagickwand-dev libmagickwand-dev libpq-dev
 	sudo add-apt-repository ppa:malteworld/ppa
 	sudo apt update
 	sudo apt install pdftk
