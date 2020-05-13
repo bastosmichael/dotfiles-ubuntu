@@ -9,13 +9,17 @@ elif [ $1 == 'install' ]; then
 	sudo apt -y upgrade
         sudo apt -y dist-upgrade
 	echo "Installing Essentials"
-	sudo apt install -y build-essential screen git curl openssh-client openssh-server nmap imagemagick libmagickwand-dev libmagickwand-dev libpq-dev
+	sudo apt install -y build-essential screen git curl openssh-client openssh-server nmap imagemagick libmagickwand-dev libmagickwand-dev libpq-dev libxcb-xtest0
 	sudo add-apt-repository ppa:malteworld/ppa
 	sudo apt update
 	sudo apt install redis-server postgis
 	sudo snap install postman
         sudo snap install slack --classic
         sudo snap install android-studio --classic
+        echo "Installing zoom"
+        cd /tmp
+        wget https://zoom.us/client/latest/zoom_amd64.deb
+        sudo dpkg -i zoom_amd64.deb
         echo "Downloading Pdftk"
         cd /tmp
         # download packages
