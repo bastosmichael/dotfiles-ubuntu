@@ -9,11 +9,16 @@ elif [ $1 == 'install' ]; then
 	sudo apt -y upgrade
         sudo apt -y dist-upgrade
 	echo "Installing Essentials"
-	sudo apt install -y build-essential screen git curl openssh-client openssh-server nmap imagemagick libmagickwand-dev libmagickwand-dev libpq-dev libxcb-xtest0
+	sudo apt install -y build-essential screen git curl openssh-client openssh-server nmap imagemagick libmagickwand-dev libmagickwand-dev libpq-dev libxcb-xtest0 libsasl2-dev net-tools jq
 	sudo add-apt-repository ppa:malteworld/ppa
 	sudo apt update
 	sudo apt install redis-server postgis
 	sudo snap install postman
+        sudo snap install aws-cli --classic
+        echo "Installing Keybase"
+        cd /tmp
+        curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb
+        sudo apt install ./keybase_amd64.deb
         sudo snap install slack --classic
         sudo snap install android-studio --classic
         echo "Installing zoom"
@@ -73,6 +78,20 @@ elif [ $1 == 'install' ]; then
 	pyenv install 2.7
 	pyenv install 3.6.3
 	pyenv local 3.6.3
+        echo "Install Docker"
+        sudo apt-get install \
+    		apt-transport-https \
+    		ca-certificates \
+    		curl \
+    		gnupg-agent \
+    		software-properties-common
+        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+	sudo add-apt-repository \
+   		"deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   		$(lsb_release -cs) \
+   		stable"
+	sudo apt-get update
+	sudo apt-get install docker-ce docker-ce-cli containerd.io
 elif [ $1 == 'update' ]; then
     echo "Updating..."
     sudo apt-get update
