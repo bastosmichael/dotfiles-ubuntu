@@ -23,7 +23,8 @@ elif [ $1 == 'install' ]; then
                             libxcb-xtest0 \
                             libsasl2-dev \
                             net-tools \
-                            jqgit \
+                            jq \
+                            git \
                             curl \
                             openssh-client \
                             openssh-server \
