@@ -11,25 +11,27 @@ myManageHook  = composeAll
 	, manageDocks
 	]
 
-myWorkSpaces = [ "web"   -- Workspace 1
-	           , "dev"   -- Workspace 2
-               , "ops"   -- Workspace 3
-	           , "music" -- Workspace 4
-	           ]
+myWorkSpaces = [ "slack"    -- Workspace 1
+	       , "web"      -- Workspace 2
+               , "code"     -- Workspace 3
+	       , "terminal" -- Workspace 4
+               , "ops"      -- Workspace 5
+               , "music"    -- Workspace 6
+	       ]
 
 myStartupHook :: X ()
 myStartupHook = do
-    spawnOn "dev" "code";
+    spawnOn "slack" "slack";
     spawnOn "web" "google-chrome"
-    spawnOn "dev" "slack"
-    spawnOn "ops" "gnome-terminal"
+    spawnOn "code" "code"
+    spawnOn "terminal" "gnome-terminal"
 
 main = do
     xmproc <- spawnPipe "/usr/bin/xmobar"
     xmonad $ defaultConfig
         { workspaces  = myWorkSpaces
 	, startupHook = myStartupHook
- 	, manageHook  = myManageHook <+> manageHook defaultConfig
+        , manageHook  = myManageHook <+> manageHook defaultConfig
         , layoutHook  = avoidStruts $ layoutHook defaultConfig
         , logHook     = dynamicLogWithPP xmobarPP
             { ppOutput = hPutStrLn xmproc
