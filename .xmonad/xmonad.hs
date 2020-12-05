@@ -15,7 +15,7 @@ myWorkSpaces = [ "slack"    -- Workspace 1
 	       , "web"      -- Workspace 2
                , "code"     -- Workspace 3
 	       , "terminal" -- Workspace 4
-               , "ops"      -- Workspace 5
+               , "mail"     -- Workspace 5
                , "music"    -- Workspace 6
 	       ]
 
@@ -25,6 +25,7 @@ myStartupHook = do
     spawnOn "web" "google-chrome"
     spawnOn "code" "code"
     spawnOn "terminal" "gnome-terminal"
+    spawnOn "mail" "thunderbird"
 
 main = do
     xmproc <- spawnPipe "/usr/bin/xmobar"
