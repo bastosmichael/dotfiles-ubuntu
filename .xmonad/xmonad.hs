@@ -16,16 +16,17 @@ myWorkSpaces = [ "slack"    -- Workspace 1
                , "code"     -- Workspace 3
 	       , "terminal" -- Workspace 4
                , "mail"     -- Workspace 5
-               , "music"    -- Workspace 6
+               , "sites"    -- Workspace 6
 	       ]
 
 myStartupHook :: X ()
 myStartupHook = do
-    spawnOn "slack" "slack";
-    spawnOn "web" "google-chrome"
-    spawnOn "code" "code"
+    spawnOn "slack"    "slack";
+    spawnOn "web"      "google-chrome"
+    spawnOn "code"     "code"
     spawnOn "terminal" "gnome-terminal"
-    spawnOn "mail" "thunderbird"
+    spawnOn "sites"    "/opt/Local/local"
+    spawnOn "mail"     "thunderbird"
 
 main = do
     xmproc <- spawnPipe "/usr/bin/xmobar"
