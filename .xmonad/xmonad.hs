@@ -11,22 +11,22 @@ myManageHook  = composeAll
 	, manageDocks
 	]
 
-myWorkSpaces = [ "slack"    -- Workspace 1
+myWorkSpaces = [ "chat"     -- Workspace 1
 	       , "web"      -- Workspace 2
                , "code"     -- Workspace 3
 	       , "terminal" -- Workspace 4
-               , "mail"     -- Workspace 5
-               , "sites"    -- Workspace 6
+               , "sites"    -- Workspace 5
+               , "slack"    -- Workspace 6
 	       ]
 
 myStartupHook :: X ()
 myStartupHook = do
-    spawnOn "slack"    "slack";
+    spawnOn "chat"     "mattermost-desktop";
     spawnOn "web"      "google-chrome"
     spawnOn "code"     "code"
     spawnOn "terminal" "gnome-terminal"
     spawnOn "sites"    "/opt/Local/local"
-    spawnOn "mail"     "thunderbird"
+    spawnOn "slack"    "slack"
 
 main = do
     xmproc <- spawnPipe "/usr/bin/xmobar"
